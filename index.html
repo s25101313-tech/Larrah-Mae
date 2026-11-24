@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Larrah Mae | Personal Website</title>
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       max-width: 720px;
@@ -19,34 +16,44 @@
     }
     /* Top Navigation Bar */
     nav {
-      position: sticky;
-      top: 0;
       background-color: #ffffff;
       padding: 14px 24px;
-      margin: 20px 0 30px 0;
+      margin: 24px 0 24px 0;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(29, 78, 216, 0.08);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      z-index: 100;
     }
     .nav-brand {
       font-weight: 700;
       color: #1d4ed8;
       font-size: 1.1rem;
+      cursor: pointer;
       text-decoration: none;
     }
-    .nav-links a {
-      margin-left: 20px;
-      text-decoration: none;
+    .nav-links {
+      display: flex;
+      gap: 8px;
+    }
+    .nav-btn {
+      background: none;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
       color: #334155;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 0.95rem;
-      transition: color 0.2s;
+      cursor: pointer;
+      transition: all 0.2s;
     }
-    .nav-links a:hover {
+    .nav-btn:hover {
+      background-color: #eff6ff;
       color: #1d4ed8;
+    }
+    .nav-btn.active {
+      background-color: #1d4ed8;
+      color: #ffffff;
     }
     /* Main Card Layout */
     .card {
@@ -54,12 +61,24 @@
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(29, 78, 216, 0.08);
+      min-height: 320px;
     }
-    .header {
+    /* Tab Sections (Hidden by default until clicked) */
+    .page-section {
+      display: none;
+      animation: fadeIn 0.25s ease-in-out;
+    }
+    .page-section.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    /* Home Section Styling */
+    .home-content {
       text-align: center;
-      padding: 20px 0 30px 0;
-      border-bottom: 1px solid #e2e8f0;
-      margin-bottom: 2.5rem;
+      padding: 30px 10px;
     }
     .profile-pic {
       width: 140px;
@@ -70,25 +89,60 @@
       margin-bottom: 16px;
     }
     h1 {
-      font-size: 2.2rem;
-      margin: 0 0 0.4rem 0;
+      font-size: 2.3rem;
+      margin: 0 0 0.5rem 0;
       color: #1d4ed8;
     }
     .subtitle {
       color: #64748b;
-      font-size: 1.1rem;
-      margin: 0;
+      font-size: 1.15rem;
+      margin-bottom: 1.8rem;
     }
-    section {
-      margin-bottom: 2.5rem;
-      scroll-margin-top: 90px;
+    .cta-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
+    .primary-btn {
+      background-color: #1d4ed8;
+      color: #ffffff;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .primary-btn:hover {
+      background-color: #1e40af;
+    }
+    .secondary-btn {
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .secondary-btn:hover {
+      background-color: #dbeafe;
+    }
+    /* Headings & Text */
     h2 {
       font-size: 1.35rem;
       color: #1d4ed8;
       border-bottom: 2px solid #bfdbfe;
       padding-bottom: 6px;
+      margin-top: 0;
       margin-bottom: 1rem;
+    }
+    .section-spacer {
+      margin-top: 2rem;
     }
     p {
       color: #334155;
@@ -102,32 +156,62 @@
     li {
       margin-bottom: 0.6rem;
     }
-    /* Contact Section Buttons */
-    .contact-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 1rem;
+    /* Contact Cards & Buttons */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 1.5rem;
     }
-    .contact-btn {
+    .contact-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 16px 20px;
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+    }
+    .contact-info strong {
+      display: block;
+      color: #1e293b;
+      font-size: 1rem;
+    }
+    .contact-info span {
+      color: #64748b;
+      font-size: 0.95rem;
+    }
+    .contact-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .action-btn {
       display: inline-block;
-      padding: 10px 18px;
-      background-color: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #bfdbfe;
+      padding: 8px 16px;
+      background-color: #1d4ed8;
+      color: #ffffff;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.95rem;
-      transition: background-color 0.2s, color 0.2s;
+      font-size: 0.9rem;
+      transition: background-color 0.2s;
     }
-    .contact-btn:hover {
-      background-color: #1d4ed8;
-      color: #ffffff;
+    .action-btn:hover {
+      background-color: #1e40af;
+    }
+    .action-btn.outline {
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+    .action-btn.outline:hover {
+      background-color: #dbeafe;
     }
     footer {
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
       padding-top: 1.5rem;
       border-top: 1px solid #e2e8f0;
       color: #64748b;
@@ -137,33 +221,39 @@
 </head>
 <body>
 
-  <!-- Navigation Menu -->
+  <!-- Navigation Bar -->
   <nav>
-    <a href="#home" class="nav-brand">Larrah Mae</a>
+    <a class="nav-brand" onclick="showPage('home', document.getElementById('btn-home'))">Larrah Mae</a>
     <div class="nav-links">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <button id="btn-home" class="nav-btn active" onclick="showPage('home', this)">Home</button>
+      <button id="btn-about" class="nav-btn" onclick="showPage('about', this)">About</button>
+      <button id="btn-contact" class="nav-btn" onclick="showPage('contact', this)">Contact</button>
     </div>
   </nav>
 
   <div class="card">
-    <!-- HOME SECTION -->
-    <div id="home" class="header" style="scroll-margin-top: 90px;">
-      <!-- Once you upload profile.jpg to GitHub, remove the comment arrows around the img line below -->
-      <!-- <img src="profile.jpg" alt="Larrah Mae" class="profile-pic"> -->
-      <h1>Hello, I'm Larrah Mae</h1>
-      <p class="subtitle">Who I Am &amp; What I've Learned: A Personal Website Built on GitHub Pages</p>
+    <!-- 1. HOME TAB -->
+    <div id="home" class="page-section active">
+      <div class="home-content">
+        <!-- Uncomment the line below once you upload profile.jpg to GitHub -->
+        <!-- <img src="profile.jpg" alt="Larrah Mae" class="profile-pic"> -->
+        <h1>Hello, I'm Larrah Mae</h1>
+        <p class="subtitle">Who I Am &amp; What I've Learned: A Personal Website Built on GitHub Pages</p>
+        <div class="cta-group">
+          <button class="primary-btn" onclick="showPage('about', document.getElementById('btn-about'))">Read About Me</button>
+          <button class="secondary-btn" onclick="showPage('contact', document.getElementById('btn-contact'))">Get in Touch</button>
+        </div>
+      </div>
     </div>
 
-    <!-- ABOUT SECTION -->
-    <section id="about">
+    <!-- 2. ABOUT TAB -->
+    <div id="about" class="page-section">
       <h2>About Me</h2>
       <p>
         Hello! My name is Larrah Mae Escala, and I am a 20-year-old student currently pursuing a degree in Information Management. Outside of my studies, I enjoy exploring new digital tools, organizing data, and spending quality time with friends and family. My primary goal is to excel academically so I can build a successful career in the tech and business sectors and achieve long-term financial stability.
       </p>
 
-      <h2>What I Learned in This Subject</h2>
+      <h2 class="section-spacer">What I Learned in This Subject</h2>
       <p>
         This class has been a rewarding hands-on experience that bridged the gap between theoretical concepts and practical web development. Starting with the basics of structuring content and gradually moving into layout and design, each activity helped me understand how different web elements work together. By applying what I learned in class and troubleshooting errors along the way, I gained the technical confidence and problem-solving skills needed to create digital projects independently—an essential asset as I pursue my degree in Information Management.
       </p>
@@ -172,25 +262,75 @@
         <li><strong>CSS Styling:</strong> Learned how to use colors, fonts, spacing, and card layouts to make a site clean and mobile-friendly.</li>
         <li><strong>GitHub &amp; Web Hosting:</strong> Learned how to create a repository, commit code updates, and publish a live site using GitHub Pages.</li>
       </ul>
-    </section>
+    </div>
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
+    <!-- 3. CONTACT TAB -->
+    <div id="contact" class="page-section">
       <h2>Contact Me</h2>
       <p>
         Feel free to reach out if you would like to connect, collaborate on a project, or share feedback about my website!
       </p>
-      <div class="contact-links">
-        <a href="mailto:your.email@example.com" class="contact-btn">Email Me</a>
-        <a href="https://github.com/s25101313-tech" target="_blank" class="contact-btn">GitHub Profile</a>
-        <a href="https://facebook.com" target="_blank" class="contact-btn">Facebook / Social</a>
+
+      <div class="contact-grid">
+        <!-- Phone Call & SMS Message -->
+        <div class="contact-item">
+          <div class="contact-info">
+            <strong>Phone / Message</strong>
+            <span>0906-488-563</span>
+          </div>
+          <div class="contact-actions">
+            <a href="tel:+886906488563" class="action-btn">Call Me</a>
+            <a href="sms:+886906488563" class="action-btn outline">Message Me</a>
+          </div>
+        </div>
+
+        <!-- Student Email -->
+        <div class="contact-item">
+          <div class="contact-info">
+            <strong>Email</strong>
+            <span>s25101313@stu.edu.tw</span>
+          </div>
+          <div class="contact-actions">
+            <a href="mailto:s25101313@stu.edu.tw" class="action-btn">Send Email</a>
+          </div>
+        </div>
+
+        <!-- GitHub Profile -->
+        <div class="contact-item">
+          <div class="contact-info">
+            <strong>GitHub</strong>
+            <span>github.com/s25101313-tech</span>
+          </div>
+          <div class="contact-actions">
+            <a href="https://github.com/s25101313-tech" target="_blank" class="action-btn outline">View Profile</a>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
 
     <footer>
       Built by Larrah Mae &bull; Hosted on GitHub Pages
     </footer>
   </div>
+
+  <!-- JavaScript to switch between Home, About, and Contact -->
+  <script>
+    function showPage(sectionId, activeBtn) {
+      // Hide all sections
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      // Remove active style from all nav buttons
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      // Show the selected section and highlight its button
+      document.getElementById(sectionId).classList.add('active');
+      if (activeBtn) {
+        activeBtn.classList.add('active');
+      }
+    }
+  </script>
 
 </body>
 </html>
