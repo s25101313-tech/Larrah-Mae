@@ -63,7 +63,7 @@
       box-shadow: 0 4px 20px rgba(29, 78, 216, 0.08);
       min-height: 320px;
     }
-    /* Tab Sections (Hidden by default until clicked) */
+    /* Tab Sections */
     .page-section {
       display: none;
       animation: fadeIn 0.25s ease-in-out;
@@ -75,7 +75,7 @@
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    /* Home Section Styling */
+    /* Home Section */
     .home-content {
       text-align: center;
       padding: 30px 10px;
@@ -156,12 +156,12 @@
     li {
       margin-bottom: 0.6rem;
     }
-    /* Contact Cards & Buttons */
+    /* Contact Quick Info & Typing Form */
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 1.5rem;
+      gap: 12px;
+      margin-bottom: 2rem;
     }
     .contact-item {
       display: flex;
@@ -169,7 +169,7 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 10px;
-      padding: 16px 20px;
+      padding: 14px 18px;
       background-color: #f8fafc;
       border: 1px solid #e2e8f0;
       border-radius: 12px;
@@ -177,10 +177,10 @@
     .contact-info strong {
       display: block;
       color: #1e293b;
-      font-size: 1rem;
+      font-size: 0.95rem;
     }
     .contact-info span {
-      color: #64748b;
+      color: #475569;
       font-size: 0.95rem;
     }
     .contact-actions {
@@ -189,13 +189,13 @@
     }
     .action-btn {
       display: inline-block;
-      padding: 8px 16px;
+      padding: 7px 14px;
       background-color: #1d4ed8;
       color: #ffffff;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 500;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       transition: background-color 0.2s;
     }
     .action-btn:hover {
@@ -208,6 +208,56 @@
     }
     .action-btn.outline:hover {
       background-color: #dbeafe;
+    }
+    /* Message Form Styling */
+    .message-form {
+      background-color: #f8fafc;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: #1e293b;
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.98rem;
+      color: #1e293b;
+      background-color: #ffffff;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+    .submit-btn {
+      width: 100%;
+      background-color: #1d4ed8;
+      color: #ffffff;
+      border: none;
+      padding: 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .submit-btn:hover {
+      background-color: #1e40af;
     }
     footer {
       text-align: center;
@@ -237,7 +287,7 @@
       <div class="home-content">
         <!-- Uncomment the line below once you upload profile.jpg to GitHub -->
         <!-- <img src="profile.jpg" alt="Larrah Mae" class="profile-pic"> -->
-        <h1>Hello, I am Larrah Mae</h1>
+        <h1>Hello, I'm Larrah Mae</h1>
         <p class="subtitle">Who I Am &amp; What I've Learned: A Personal Website Built on GitHub Pages</p>
         <div class="cta-group">
           <button class="primary-btn" onclick="showPage('about', document.getElementById('btn-about'))">Read About Me</button>
@@ -268,44 +318,54 @@
     <div id="contact" class="page-section">
       <h2>Contact Me</h2>
       <p>
-        Feel free to reach out if you would like to connect, collaborate on a project, or share feedback about my website!
+        Feel free to call, text, or type a message directly in the form below to reach my inbox!
       </p>
 
       <div class="contact-grid">
-        <!-- Phone Call & SMS Message -->
         <div class="contact-item">
           <div class="contact-info">
-            <strong>Phone / Message</strong>
-            <span>0903-488-563</span>
+            <strong>Phone / SMS</strong>
+            <span>0906-488-563</span>
           </div>
           <div class="contact-actions">
-            <a href="tel:+886903488563" class="action-btn">Call Me</a>
-            <a href="sms:+886903488563" class="action-btn outline">Message Me</a>
+            <a href="tel:+886906488563" class="action-btn">Call Me</a>
+            <a href="sms:+886906488563" class="action-btn outline">Message Me</a>
           </div>
         </div>
 
-        <!-- Student Email -->
         <div class="contact-item">
           <div class="contact-info">
-            <strong>Email</strong>
+            <strong>Student Email</strong>
             <span>s25101313@stu.edu.tw</span>
           </div>
           <div class="contact-actions">
-            <a href="mailto:s25101313@stu.edu.tw" class="action-btn">Send Email</a>
-          </div>
-        </div>
-
-        <!-- GitHub Profile -->
-        <div class="contact-item">
-          <div class="contact-info">
-            <strong>GitHub</strong>
-            <span>github.com/s25101313-tech</span>
-          </div>
-          <div class="contact-actions">
-            <a href="https://github.com/s25101313-tech" target="_blank" class="action-btn outline">View Profile</a>
+            <a href="https://github.com/s25101313-tech" target="_blank" class="action-btn outline">GitHub Profile</a>
           </div>
         </div>
       </div>
+
+      <!-- Direct Typing Message Form -->
+      <form class="message-form" action="https://formsubmit.co/s25101313@stu.edu.tw" method="POST">
+        <input type="hidden" name="_subject" value="New Message from Larrah Mae's Website!">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email address" required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" placeholder="Type your message here..." required></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Send Message</button>
+      </form>
     </div>
 
     <footer>
@@ -313,18 +373,14 @@
     </footer>
   </div>
 
-  <!-- JavaScript to switch between Home, About, and Contact -->
   <script>
     function showPage(sectionId, activeBtn) {
-      // Hide all sections
       document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
       });
-      // Remove active style from all nav buttons
       document.querySelectorAll('.nav-btn').forEach(btn => {
         btn.classList.remove('active');
       });
-      // Show the selected section and highlight its button
       document.getElementById(sectionId).classList.add('active');
       if (activeBtn) {
         activeBtn.classList.add('active');
