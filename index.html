@@ -3,16 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Larrah Mae | Personal Website</title>
+  <title>Larrah Mae | Who I Am & What I've Learned</title>
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      max-width: 680px;
-      margin: 60px auto;
+      max-width: 720px;
+      margin: 50px auto;
       padding: 0 20px;
-      line-height: 1.6;
+      line-height: 1.7;
       color: #1e293b;
-      /* Soft ocean blue background */
       background-color: #eff6ff;
     }
     .card {
@@ -20,7 +19,18 @@
       padding: 40px;
       border-radius: 16px;
       box-shadow: 0 4px 20px rgba(29, 78, 216, 0.08);
+    }
+    .header {
       text-align: center;
+      margin-bottom: 2.5rem;
+    }
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #2563eb;
+      margin-bottom: 16px;
     }
     h1 {
       font-size: 2.2rem;
@@ -30,33 +40,70 @@
     .subtitle {
       color: #64748b;
       font-size: 1.1rem;
+      margin: 0;
+    }
+    section {
       margin-bottom: 2rem;
     }
-    .about {
-      text-align: left;
-    }
     h2 {
-      font-size: 1.3rem;
+      font-size: 1.35rem;
       color: #1d4ed8;
       border-bottom: 2px solid #bfdbfe;
       padding-bottom: 6px;
+      margin-bottom: 1rem;
     }
     p {
       color: #334155;
       font-size: 1.05rem;
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 20px;
+      color: #334155;
+    }
+    li {
+      margin-bottom: 0.6rem;
+    }
+    footer {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e2e8f0;
+      color: #64748b;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>Hello, I'm Larrah Mae</h1>
-    <p class="subtitle">Welcome to my personal site hosted on GitHub Pages.</p>
-
-    <div class="about">
-      <h2>About Me</h2>
-      <p>Write a short sentence or two here about yourself, your interests, or what you're currently working on!</p>
+    <div class="header">
+      <img src="profile.jpg" alt="Larrah Mae" class="profile-pic">
+      <h1>Hello, I'm Larrah Mae</h1>
+      <p class="subtitle">Who I Am &amp; What I've Learned: A Personal Website Built on GitHub Pages</p>
     </div>
+
+    <section>
+      <h2>About Me</h2>
+      <p>
+        Hello! My name is Larrah Mae Escala, and I am a 20-year-old student currently pursuing a degree in Information Management. Outside of my studies, I enjoy exploring new digital tools, organizing data, and spending quality time with friends and family. My primary goal is to excel academically so I can build a successful career in the tech and business sectors and achieve long-term financial stability.
+      </p>
+    </section>
+
+    <section>
+      <h2>What I Learned in This Subject</h2>
+      <p>
+        This class has been a rewarding hands-on experience that bridged the gap between theoretical concepts and practical web development. Starting with the basics of structuring content and gradually moving into layout and design, each activity helped me understand how different web elements work together. By applying what I learned in class and troubleshooting errors along the way, I gained the technical confidence and problem-solving skills needed to create digital projects independently—an essential asset as I pursue my degree in Information Management.
+      </p>
+      <ul>
+        <li><strong>HTML Structure:</strong> Learned how to organize headings, paragraphs, images, and sections effectively on a webpage.</li>
+        <li><strong>CSS Styling:</strong> Learned how to use colors, fonts, spacing, and card layouts to make a site clean and mobile-friendly.</li>
+        <li><strong>GitHub &amp; Web Hosting:</strong> Learned how to create a repository, commit code updates, and publish a live site using GitHub Pages.</li>
+      </ul>
+    </section>
+
+    <footer>
+      Built by Larrah Mae &bull; Hosted on GitHub Pages
+    </footer>
   </div>
 </body>
 </html>
-
