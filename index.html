@@ -3,17 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Larrah Mae | Who I Am & What I've Learned</title>
+  <title>Larrah Mae | Personal Website</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       max-width: 720px;
-      margin: 50px auto;
+      margin: 0 auto 60px auto;
       padding: 0 20px;
       line-height: 1.7;
       color: #1e293b;
       background-color: #eff6ff;
     }
+    /* Top Navigation Bar */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      padding: 14px 24px;
+      margin: 20px 0 30px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(29, 78, 216, 0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    .nav-brand {
+      font-weight: 700;
+      color: #1d4ed8;
+      font-size: 1.1rem;
+      text-decoration: none;
+    }
+    .nav-links a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #334155;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #1d4ed8;
+    }
+    /* Main Card Layout */
     .card {
       background-color: #ffffff;
       padding: 40px;
@@ -22,6 +57,8 @@
     }
     .header {
       text-align: center;
+      padding: 20px 0 30px 0;
+      border-bottom: 1px solid #e2e8f0;
       margin-bottom: 2.5rem;
     }
     .profile-pic {
@@ -43,7 +80,8 @@
       margin: 0;
     }
     section {
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
+      scroll-margin-top: 90px;
     }
     h2 {
       font-size: 1.35rem;
@@ -64,9 +102,32 @@
     li {
       margin-bottom: 0.6rem;
     }
+    /* Contact Section Buttons */
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 1rem;
+    }
+    .contact-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    .contact-btn:hover {
+      background-color: #1d4ed8;
+      color: #ffffff;
+    }
     footer {
       text-align: center;
-      margin-top: 2.5rem;
+      margin-top: 2rem;
       padding-top: 1.5rem;
       border-top: 1px solid #e2e8f0;
       color: #64748b;
@@ -75,21 +136,33 @@
   </style>
 </head>
 <body>
+
+  <!-- Navigation Menu -->
+  <nav>
+    <a href="#home" class="nav-brand">Larrah Mae</a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
   <div class="card">
-    <div class="header">
-      <img src="fe2d7e66-ccee-452d-a811-074fff8059d3.jpg" alt="Larrah Mae" class="profile-pic">
+    <!-- HOME SECTION -->
+    <div id="home" class="header" style="scroll-margin-top: 90px;">
+      <!-- Once you upload profile.jpg to GitHub, remove the comment arrows around the img line below -->
+      <!-- <img src="profile.jpg" alt="Larrah Mae" class="profile-pic"> -->
       <h1>Hello, I'm Larrah Mae</h1>
       <p class="subtitle">Who I Am &amp; What I've Learned: A Personal Website Built on GitHub Pages</p>
     </div>
 
-    <section>
+    <!-- ABOUT SECTION -->
+    <section id="about">
       <h2>About Me</h2>
       <p>
         Hello! My name is Larrah Mae Escala, and I am a 20-year-old student currently pursuing a degree in Information Management. Outside of my studies, I enjoy exploring new digital tools, organizing data, and spending quality time with friends and family. My primary goal is to excel academically so I can build a successful career in the tech and business sectors and achieve long-term financial stability.
       </p>
-    </section>
 
-    <section>
       <h2>What I Learned in This Subject</h2>
       <p>
         This class has been a rewarding hands-on experience that bridged the gap between theoretical concepts and practical web development. Starting with the basics of structuring content and gradually moving into layout and design, each activity helped me understand how different web elements work together. By applying what I learned in class and troubleshooting errors along the way, I gained the technical confidence and problem-solving skills needed to create digital projects independently—an essential asset as I pursue my degree in Information Management.
@@ -101,9 +174,23 @@
       </ul>
     </section>
 
+    <!-- CONTACT SECTION -->
+    <section id="contact">
+      <h2>Contact Me</h2>
+      <p>
+        Feel free to reach out if you would like to connect, collaborate on a project, or share feedback about my website!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:your.email@example.com" class="contact-btn">Email Me</a>
+        <a href="https://github.com/s25101313-tech" target="_blank" class="contact-btn">GitHub Profile</a>
+        <a href="https://facebook.com" target="_blank" class="contact-btn">Facebook / Social</a>
+      </div>
+    </section>
+
     <footer>
-      Built by Larrah Mae; Hosted on GitHub Pages
+      Built by Larrah Mae &bull; Hosted on GitHub Pages
     </footer>
   </div>
+
 </body>
 </html>
