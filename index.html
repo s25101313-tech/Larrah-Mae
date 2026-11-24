@@ -186,16 +186,20 @@
     .contact-actions {
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
     }
     .action-btn {
       display: inline-block;
       padding: 7px 14px;
       background-color: #1d4ed8;
       color: #ffffff;
+      border: none;
       border-radius: 8px;
       text-decoration: none;
+      font-family: inherit;
       font-weight: 500;
       font-size: 0.88rem;
+      cursor: pointer;
       transition: background-color 0.2s;
     }
     .action-btn:hover {
@@ -318,18 +322,19 @@
     <div id="contact" class="page-section">
       <h2>Contact Me</h2>
       <p>
-        Feel free to call, text, or type a message directly in the form below to reach my inbox!
+        Feel free to copy my number, call or text from your phone, or type a message directly in the form below to reach my inbox!
       </p>
 
       <div class="contact-grid">
         <div class="contact-item">
           <div class="contact-info">
             <strong>Phone / SMS</strong>
-            <span>0906-488-563</span>
+            <span id="phone-text">0906-488-563</span>
           </div>
           <div class="contact-actions">
-            <a href="tel:+886906488563" class="action-btn">Call Me</a>
-            <a href="sms:+886906488563" class="action-btn outline">Message Me</a>
+            <button type="button" class="action-btn" onclick="copyPhone(this)">Copy Number</button>
+            <a href="tel:0906488563" class="action-btn outline">Call</a>
+            <a href="sms:0906488563" class="action-btn outline">SMS</a>
           </div>
         </div>
 
@@ -385,6 +390,12 @@
       if (activeBtn) {
         activeBtn.classList.add('active');
       }
+    }
+
+    function copyPhone(btn) {
+      navigator.clipboard.writeText('0906488563');
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = 'Copy Number'; }, 2000);
     }
   </script>
 
